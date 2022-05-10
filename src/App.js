@@ -1,22 +1,17 @@
-import './App.css';
-import Beer from './components/Beer';
-import BasicButtonGroup from './components/ButtonGroup';
-import Cider from './components/Cider';
-import Footer from './components/Footer';
-import Header from './components/Header.js';
-import LongDrink from './components/LongDrink';
+import BasicButtonGroup from './components/buttonGroup';
+import Cart from './components/cart';
+import Header from './components/header.js';
+import ShowData from './components/showData';
 
 
 
 function App() {
+
   return (
     <div className="App">
       <Header />
       <BasicButtonGroup />
-      <Beer />
-      <Cider />
-      <LongDrink />
-      <Footer />
+      <ShowData />
     </div>
   );
 }

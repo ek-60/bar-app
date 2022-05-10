@@ -1,4 +1,7 @@
-.Beer, .Cider, .LongDrink {
+.Beer, .Cider, .LongDrink, .cards {
     /* width: 22.5rem; */
-    padding-top: 2.5rem;
+    /* padding-top: 2.5rem; */
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
 }
