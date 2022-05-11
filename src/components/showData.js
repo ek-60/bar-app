@@ -9,7 +9,6 @@ import LongDrinkCard from "./card/longDrinkCard";
 
 const ShowData = ({ handleClick }) => {
   return (
-    // <Cards>
     <Container component="section" maxWidth="lg">
       <Grid container spacing={3} alignItems="stretch">
         {beer.map((item) => (
@@ -18,12 +17,7 @@ const ShowData = ({ handleClick }) => {
       </Grid>
       <Grid container spacing={3} alignItems="stretch">
         {cider.map((item) => (
-          <CiderCard
-            id="ciders"
-            key={item.id}
-            item={item}
-            handleClick={handleClick}
-          />
+          <CiderCard key={item.id} item={item} handleClick={handleClick} />
         ))}
       </Grid>
       <Grid container spacing={3} alignItems="stretch">

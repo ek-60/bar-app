@@ -6,38 +6,11 @@ import { Button } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
+import RemoveIcon from "@mui/icons-material/Remove";
+import AddIcon from "@mui/icons-material/Add";
 
-// import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
-// import FastfoodIcon from '@material-ui/icons/Fastfood';
-// import LocationCityIcon from '@material-ui/icons/LocationCity';
-
-// const useStyles = makeStyles(theme => ({
-//   root: {
-//     padding: theme.spacing(2, 2),
-//   },
-//   card: {
-//     height: '100%',
-//     width: '100%',
-//     display: 'flex',
-//     flexDirection: 'column',
-//     alignItems: 'center',
-//     border: '1px solid black',
-//     borderRadius: '5px',
-//     textAlign: 'center',
-//   },
-//   icon: {
-//     padding: theme.spacing(2, 0),
-//   },
-//   title: {
-//     padding: theme.spacing(2),
-//   },
-//   featureList: {
-//     padding: theme.spacing(2),
-//   },
-// }));
-
-const BeerCard = ({ item }) => {
-  const { title, author, price, img, handleClick } = item;
+const BeerCard = ({ item, handleChange, handleClick }) => {
+  const { title, author, price, img } = item;
 
   return (
     <Grid item xs={12} sm={4}>
@@ -65,13 +38,18 @@ const BeerCard = ({ item }) => {
             <Typography variant="body2" color="text.secondary">
               {author}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
-              {price}€
-            </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">-</Button>
-            <Button size="small">Lisää tilaukseen</Button>
+            <Button size="small" onClick={() => handleChange(item, -1)}>
+              <RemoveIcon fontSize="small" />
+            </Button>
+            <Button>{item.amount}</Button>
+            <Button size="small" onClick={() => handleChange(item, +1)}>
+              <AddIcon fontSize="small" />
+            </Button>
+            <Button size="small" onClick={() => handleClick(item)}>
+              Lisää tilaukseen {price}
+            </Button>
           </CardActions>
         </Card>
       </div>

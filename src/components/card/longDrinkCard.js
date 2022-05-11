@@ -6,10 +6,8 @@ import { Button } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-
-// import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
-// import FastfoodIcon from '@material-ui/icons/Fastfood';
-// import LocationCityIcon from '@material-ui/icons/LocationCity';
+import RemoveIcon from "@mui/icons-material/Remove";
+import AddIcon from "@mui/icons-material/Add";
 
 // const useStyles = makeStyles(theme => ({
 //   root: {
@@ -36,8 +34,8 @@ import CardMedia from "@mui/material/CardMedia";
 //   },
 // }));
 
-const LongDrinkCard = ({ item }) => {
-  const { title, author, price, handleClick } = item;
+const LongDrinkCard = ({ item, handleClick, handleChange }) => {
+  const { title, author, price, img } = item;
   // const classes = useStyles();
 
   //   const increase = () => {
@@ -70,7 +68,7 @@ const LongDrinkCard = ({ item }) => {
             <CardMedia
               component="img"
               height="120"
-              image="/static/images/cards/contemplative-reptile.jpg"
+              src={img}
               // alt="green iguana"
             />
             <Typography variant="body2" color="text.secondary">
@@ -81,8 +79,16 @@ const LongDrinkCard = ({ item }) => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">-</Button>
-            <Button size="small">Lisää tilaukseen</Button>
+            <Button size="small" onClick={() => handleChange(item, -1)}>
+              <RemoveIcon fontSize="small" />
+            </Button>
+            <Button>{item.amount}</Button>
+            <Button size="small" onClick={() => handleChange(item, +1)}>
+              <AddIcon fontSize="small" />
+            </Button>
+            <Button size="small" onClick={() => handleClick(item)}>
+              Lisää tilaukseen {price}
+            </Button>
           </CardActions>
         </Card>
       </div>
