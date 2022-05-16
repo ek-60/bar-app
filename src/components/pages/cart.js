@@ -13,6 +13,7 @@ const Cart = ({ cart, setCart, handleChange }) => {
     let ans = 0;
     cart.map((item) => (ans += item.amount * item.price));
     setPrice(ans);
+    console.log(cart);
   };
 
   useEffect(() => {

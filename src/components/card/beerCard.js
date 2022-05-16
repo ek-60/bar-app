@@ -21,6 +21,7 @@ const BeerCard = ({ item, handleChange, handleClick }) => {
             display: "flex",
             flexDirection: "column",
             maxWidth: 345,
+            minWidth: 245,
             margin: 1,
           }}
         >
@@ -41,11 +42,11 @@ const BeerCard = ({ item, handleChange, handleClick }) => {
           </CardContent>
           <CardActions>
             <Button size="small" onClick={() => handleChange(item, -1)}>
-              <RemoveIcon fontSize="small" />
+              {/* <RemoveIcon fontSize="small" /> */}-
             </Button>
-            <Button>{item.amount}</Button>
+            {/* <Button>{item.amount}</Button> */}
             <Button size="small" onClick={() => handleChange(item, +1)}>
-              <AddIcon fontSize="small" />
+              {/* <AddIcon fontSize="small" /> */}+
             </Button>
             <Button size="small" onClick={() => handleClick(item)}>
               Lisää tilaukseen {price}

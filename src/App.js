@@ -1,17 +1,20 @@
+import "./App.css";
 import React, { useState, useEffect } from "react";
 import BasicButtonGroup from "./components/buttonGroup";
-import Cart from "./components/cart";
 import Header from "./components/header.js";
-import ShowData from "./components/showData";
+import "bootstrap/dist/css/bootstrap.min.css";
+import MainPage from "./components/pages/main";
+import Navigation from "./components/nav";
+import Cart from "./components/pages/cart";
 
 function App() {
-  // const [show, setShow] = useState(true);
+  const [show, setShow] = useState(true);
   const [cart, setCart] = useState([]);
 
   const handleClick = (item) => {
     if (cart.indexOf(item) !== -1) return;
     setCart([...cart, item]);
-    // console.log(item);
+    console.log(item.title);
   };
 
   const handleChange = (item, d) => {
@@ -24,20 +27,19 @@ function App() {
   };
 
   // useEffect(() => {
-  //   console.log("cart change");
+  //   // console.log("cart change");
   // }, [cart]);
 
   return (
-    <div className="App">
-      <Header size={cart.length} />
-      {/* {show ? (
-        // <BasicButtonGroup handleClick={handleClick} />
-        <ShowData handleClick={handleClick} />
+    <React.Fragment>
+      {/* <Navigation /> */}
+      <Header setShow={setShow} size={cart.length} />
+      {show ? (
+        <MainPage handleClick={handleClick} handleChange={handleChange} />
       ) : (
         <Cart cart={cart} setCart={setCart} handleChange={handleChange} />
-      )} */}
-      <ShowData handleClick={handleClick} handleChange={handleChange} />
-    </div>
+      )}
+    </React.Fragment>
   );
 }
 

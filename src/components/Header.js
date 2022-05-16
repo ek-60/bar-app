@@ -20,11 +20,12 @@ const Header = ({ setShow, size }) => {
           <Typography
             variant="h6"
             component="div"
+            onClick={() => setShow(true)}
             sx={{ flexGrow: 1, marginLeft: 4 }}
           >
             LOGO
           </Typography>
-          <Button color="inherit">
+          <Button color="inherit" onClick={() => setShow(false)}>
             <Badge color="secondary" badgeContent={size}>
               <ShoppingCartIcon />
             </Badge>

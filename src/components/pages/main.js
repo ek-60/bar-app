@@ -1,15 +1,15 @@
 import { Container, Grid } from "@mui/material";
 import React, { useState } from "react";
-import beer from "../Data/beer";
-import longDrinks from "../Data/longDrink";
-import cider from "../Data/cider";
-import BeerCard from "./card/beerCard";
-import CiderCard from "./card/ciderCard";
-import LongDrinkCard from "./card/longDrinkCard";
+import CiderCard from "../card/ciderCard";
+import LongDrinkCard from "../card/longDrinkCard";
+import BeerCard from "../card/beerCard";
+import cider from "../../Data/cider";
+import beer from "../../Data/beer";
+import longDrinks from "../../Data/longDrink";
 
-const ShowData = ({ handleClick }) => {
+const MainPage = ({ handleClick }) => {
   return (
-    <Container component="section" maxWidth="lg">
+    <Container component="section" maxWidth="lg" sx={{ marginTop: 10 }}>
       <Grid container spacing={3} alignItems="stretch">
         {beer.map((item) => (
           <BeerCard key={item.id} item={item} handleClick={handleClick} />
@@ -29,4 +29,4 @@ const ShowData = ({ handleClick }) => {
   );
 };
 
-export default ShowData;
+export default MainPage;

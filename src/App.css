@@ -1,7 +1,12 @@
-.Beer, .Cider, .LongDrink, .cards {
-    /* width: 22.5rem; */
-    /* padding-top: 2.5rem; */
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
+.home {
+  text-align: left;
+  background-color: blue;
+  height: 1000px;
+}
+.about {
+  padding: 1rem;
+  margin: 10rem;
+  background-color: aqua;
+  height: fit-content;
+  text-align: left;
 }
