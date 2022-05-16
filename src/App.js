@@ -1,11 +1,11 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import BasicButtonGroup from "./components/buttonGroup";
-import Header from "./components/header.js";
+// import BasicButtonGroup from "./components/buttonGroup";
 import "bootstrap/dist/css/bootstrap.min.css";
 import MainPage from "./components/pages/main";
-import Navigation from "./components/nav";
+// import Navigation from "./components/nav";
 import Cart from "./components/pages/cart";
+import Header from "./components/header";
 
 function App() {
   const [show, setShow] = useState(true);
