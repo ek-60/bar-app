@@ -20,7 +20,7 @@ const Header = ({ setShow, size }) => {
           <Typography
             variant="h6"
             component="div"
-            onClick={() => setShow(true)}
+            // onClick={() => setShow(true)}
             sx={{ flexGrow: 1, marginLeft: 4 }}
           >
             LOGO

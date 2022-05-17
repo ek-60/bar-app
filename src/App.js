@@ -6,6 +6,7 @@ import MainPage from "./components/pages/main";
 // import Navigation from "./components/nav";
 import Cart from "./components/pages/cart";
 import Header from "./components/header";
+import SimpleBottomNavigation from "./components/footer";
 
 function App() {
   const [show, setShow] = useState(true);
@@ -20,14 +21,17 @@ function App() {
   const handleChange = (item, d) => {
     const ind = cart.indexOf(item);
     const arr = cart;
+    const productName = arr[ind].title;
+    const orderAmount = arr[ind].amount;
     arr[ind].amount += d;
 
     if (arr[ind].amount === 0) arr[ind].amount = 1;
     setCart([...arr]);
+    // console.log(productName + orderAmount);
   };
 
   // useEffect(() => {
-  //   // console.log("cart change");
+  //   console.log("cart change");
   // }, [cart]);
 
   return (
@@ -37,8 +41,14 @@ function App() {
       {show ? (
         <MainPage handleClick={handleClick} handleChange={handleChange} />
       ) : (
-        <Cart cart={cart} setCart={setCart} handleChange={handleChange} />
+        <Cart
+          setShow={setShow}
+          cart={cart}
+          setCart={setCart}
+          handleChange={handleChange}
+        />
       )}
+      {/* <SimpleBottomNavigation /> */}
     </React.Fragment>
   );
 }
