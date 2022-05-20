@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "./cartStyle.css";
 import CloseButton from "../closeButton";
-import UserData from "../userData";
 import {
+  Box,
   Button,
   FormControl,
+  Grid,
   InputLabel,
   MenuItem,
   Select,
   TextField,
 } from "@mui/material";
+import { auth, database } from "../../firebase";
+import { push, ref, set } from "firebase/database";
 
 const Cart = ({ cart, setCart, handleChange, setShow }) => {
   const [price, setPrice] = useState(0);
@@ -51,9 +54,17 @@ const Cart = ({ cart, setCart, handleChange, setShow }) => {
     // console.log("Puhelinnumero: " + phoneNumber);
   };
 
-  const handleOrder = () => {
-    const productName = cart.map((item) => item.title);
-    const orderAmount = cart.map((item) => item.amount);
+  const Push = () => {
+    const data = ref(database, "Tilaus");
+    const newItems = push(data);
+    const order = cart.map((item) => item.title + item.amount);
+    set(newItems, {
+      name: name,
+      table: table,
+      phoneNumber: number,
+      order: order,
+      orderPrice: price,
+    });
     console.log(
       "Pyödän numero: " +
         table +
@@ -62,12 +73,30 @@ const Cart = ({ cart, setCart, handleChange, setShow }) => {
         " Puhelinnumero: " +
         number +
         " Tilasi: " +
-        productName +
-        orderAmount +
+        order +
+        // orderAmount +
         " Hinta: " +
         price
     );
   };
+
+  // const handleOrder = () => {
+  //   const order = cart.map((item) => item.title + item.amount);
+  //   const orderAmount = cart.map((item) => item.amount);
+  //   console.log(
+  //     "Pyödän numero: " +
+  //       table +
+  //       " Tilaajan nimi: " +
+  //       name +
+  //       " Puhelinnumero: " +
+  //       number +
+  //       " Tilasi: " +
+  //       order +
+  //       // orderAmount +
+  //       " Hinta: " +
+  //       price
+  //   );
+  // };
 
   return (
     <div>
@@ -87,7 +116,7 @@ const Cart = ({ cart, setCart, handleChange, setShow }) => {
                   <button onClick={() => handleChange(item, -1)}>-</button>
                 </div>
                 <div>
-                  <span>{item.price}</span>
+                  <span>{item.price * item.amount} €</span>
                   <button onClick={() => handleRemove(item.id)}>Remove</button>
                 </div>
               </div>
@@ -95,42 +124,58 @@ const Cart = ({ cart, setCart, handleChange, setShow }) => {
           </article>
         </div>
       </div>
-      {/* <UserData /> */}
-      <FormControl sx={{ width: 300 }}>
-        <InputLabel>Pöydän numero</InputLabel>
-        <Select value={table} onChange={handelTable}>
-          <MenuItem value={1}>1</MenuItem>
-          <MenuItem value={2}>2</MenuItem>
-          <MenuItem value={3}>3</MenuItem>
-          <MenuItem value={4}>4</MenuItem>
-          <MenuItem value={5}>5</MenuItem>
-        </Select>
-      </FormControl>
-      <TextField
-        sx={{ width: 300 }}
-        id="name"
-        label="Anna nimesi"
-        placeholder="Nimi"
-        multiline
-        value={name}
-        onChange={handleName}
-        //   variant="standard"
-      />
-      <TextField
-        sx={{ width: 300 }}
-        id="phoneNumber"
-        label="Anna puhelinnumerosi"
-        placeholder="Puhelinnumero"
-        multiline
-        //   variant="standard"
-        value={number}
-        onChange={handlePhoneNumber}
-      />
+      <Grid
+        item
+        xs={12}
+        sm={4}
+        sx={{ alignItems: "center", justifyContent: "center", display: "flex" }}
+      >
+        <Box>
+          <FormControl sx={{ width: 300, margin: 2 }}>
+            <InputLabel>Pöydän numero</InputLabel>
+            <Select value={table} onChange={handelTable}>
+              <MenuItem value={1}>1</MenuItem>
+              <MenuItem value={2}>2</MenuItem>
+              <MenuItem value={3}>3</MenuItem>
+              <MenuItem value={4}>4</MenuItem>
+              <MenuItem value={5}>5</MenuItem>
+            </Select>
+          </FormControl>
+          <TextField
+            sx={{ width: 300, margin: 2 }}
+            id="name"
+            label="Anna nimesi"
+            placeholder="Nimi"
+            multiline
+            value={name}
+            onChange={handleName}
+            //   variant="standard"
+          />
+          <TextField
+            sx={{ width: 300, margin: 2 }}
+            id="phoneNumber"
+            label="Anna puhelinnumerosi"
+            placeholder="Puhelinnumero"
+            multiline
+            //   variant="standard"
+            value={number}
+            onChange={handlePhoneNumber}
+          />
+        </Box>
+      </Grid>
       <div className="total">
-        <span>Ostoksesi maksavat </span>
-        <span>{price} € </span>
+        <span>Ostoksesi maksavat {price}€</span>
+        {/* <span>{price} €</span> */}
       </div>
-      <Button onClick={handleOrder}>Tilaa tuotteet</Button>
+      <div className="order">
+        <Button
+          sx={{ fontSize: 25, marginBottom: 2, marginTop: 2 }}
+          variant="outlined"
+          onClick={Push}
+        >
+          Tilaa tuotteet
+        </Button>
+      </div>
     </div>
   );
 };

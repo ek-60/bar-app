@@ -34,20 +34,8 @@ import AddIcon from "@mui/icons-material/Add";
 //   },
 // }));
 
-const LongDrinkCard = ({ item, handleClick, handleChange }) => {
+const LongDrinkCard = ({ item, handleClick }) => {
   const { title, author, price, img } = item;
-  // const classes = useStyles();
-
-  //   const increase = () => {
-  //     setCounter(count => count + 1)
-  //     console.log(title + counter)
-  // }
-
-  // const decrease = () => {
-  //     if ( counter > 1 ) {
-  //         setCounter(count => count - 1)
-  //     }
-  // }
 
   return (
     <Grid item xs={12} sm={4}>
@@ -79,13 +67,13 @@ const LongDrinkCard = ({ item, handleClick, handleChange }) => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small" onClick={() => handleChange(item, -1)}>
+            {/* <Button size="small" onClick={() => handleChange(item, -1)}>
               <RemoveIcon fontSize="small" />
             </Button>
             <Button>{item.amount}</Button>
             <Button size="small" onClick={() => handleChange(item, +1)}>
               <AddIcon fontSize="small" />
-            </Button>
+            </Button> */}
             <Button size="small" onClick={() => handleClick(item)}>
               Lisää tilaukseen {price}
             </Button>

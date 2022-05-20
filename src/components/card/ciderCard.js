@@ -9,19 +9,19 @@ import CardMedia from "@mui/material/CardMedia";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
 
-// const useStyles = makeStyles(theme => ({
+// const useStyles = makeStyles((theme) => ({
 //   root: {
 //     padding: theme.spacing(2, 2),
 //   },
 //   card: {
-//     height: '100%',
-//     width: '100%',
-//     display: 'flex',
-//     flexDirection: 'column',
-//     alignItems: 'center',
-//     border: '1px solid black',
-//     borderRadius: '5px',
-//     textAlign: 'center',
+//     height: "100%",
+//     width: "100%",
+//     display: "flex",
+//     flexDirection: "column",
+//     alignItems: "center",
+//     border: "1px solid black",
+//     borderRadius: "5px",
+//     textAlign: "center",
 //   },
 //   icon: {
 //     padding: theme.spacing(2, 0),
@@ -34,20 +34,8 @@ import AddIcon from "@mui/icons-material/Add";
 //   },
 // }));
 
-const CiderCard = ({ item, handleChange, handleClick }) => {
+const CiderCard = ({ item, handleClick }) => {
   const { title, author, price, img } = item;
-  // const classes = useStyles();
-
-  //   const increase = () => {
-  //     setCounter(count => count + 1)
-  //     console.log(title + counter)
-  // }
-
-  // const decrease = () => {
-  //     if ( counter > 1 ) {
-  //         setCounter(count => count - 1)
-  //     }
-  // }
 
   return (
     <Grid item xs={12} sm={4}>
@@ -79,13 +67,13 @@ const CiderCard = ({ item, handleChange, handleClick }) => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small" onClick={() => handleChange(item, -1)}>
+            {/* <Button size="small" onClick={() => handleChange(item, -1)}>
               <RemoveIcon fontSize="small" />
             </Button>
             <Button>{item.amount}</Button>
             <Button size="small" onClick={() => handleChange(item, +1)}>
               <AddIcon fontSize="small" />
-            </Button>
+            </Button> */}
             <Button size="small" onClick={() => handleClick(item)}>
               Lisää tilaukseen {price}
             </Button>

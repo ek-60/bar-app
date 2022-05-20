@@ -9,7 +9,7 @@ import CardMedia from "@mui/material/CardMedia";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
 
-const BeerCard = ({ item, handleChange, handleClick }) => {
+const BeerCard = ({ item, handleClick }) => {
   const { title, author, price, img } = item;
 
   return (
@@ -41,13 +41,13 @@ const BeerCard = ({ item, handleChange, handleClick }) => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small" onClick={() => handleChange(item, -1)}>
-              {/* <RemoveIcon fontSize="small" /> */}-
+            {/* <Button size="small" onClick={() => handleChange(item, -1)}>
+              <RemoveIcon fontSize="small" />-
             </Button>
-            {/* <Button>{item.amount}</Button> */}
+            <Button>{item.amount}</Button>
             <Button size="small" onClick={() => handleChange(item, +1)}>
-              {/* <AddIcon fontSize="small" /> */}+
-            </Button>
+              <AddIcon fontSize="small" />+
+            </Button> */}
             <Button size="small" onClick={() => handleClick(item)}>
               Lisää tilaukseen {price}
             </Button>
