@@ -62,12 +62,9 @@ const LongDrinkCard = ({ item, handleClick }) => {
               src={img}
               // alt="green iguana"
             />
-            <Typography variant="body2" color="text.secondary">
+            {/* <Typography variant="body2" color="text.secondary">
               {author}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              {price}€
-            </Typography>
+            </Typography> */}
           </CardContent>
           <CardActions>
             {/* <Button size="small" onClick={() => handleChange(item, -1)}>

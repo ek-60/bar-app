@@ -38,9 +38,9 @@ const BeerCard = ({ item, handleClick }) => {
               // alt="green iguana"
             />
             {/* <img src={img} width="100" /> */}
-            <Typography variant="body2" color="text.secondary">
+            {/* <Typography variant="body2" color="text.secondary">
               {author}
-            </Typography>
+            </Typography> */}
           </CardContent>
           <CardActions>
             {/* <Button size="small" onClick={() => handleChange(item, -1)}>
