@@ -4,8 +4,11 @@ import CloseIcon from "@mui/icons-material/Close";
 
 const CloseButton = ({ setShow }) => {
   return (
-    <Button onClick={() => setShow(true)}>
-      <CloseIcon sx={{ fontSize: 40 }} />
+    <Button
+      sx={{ paddingTop: 10, paddingLeft: 7.5 }}
+      onClick={() => setShow(true)}
+    >
+      <CloseIcon sx={{ fontSize: 40, color: "red" }} />
     </Button>
   );
 };

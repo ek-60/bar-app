@@ -1,12 +1,23 @@
-.home {
-  text-align: left;
-  background-color: blue;
-  height: 1000px;
+/* .beers {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+} */
+
+/* .ciders {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
 }
-.about {
-  padding: 1rem;
-  margin: 10rem;
-  background-color: aqua;
-  height: fit-content;
-  text-align: left;
+
+.longdrinks {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+} */
+
+.mainPage {
+  /* background-color: #d6cbd3; */
+  background-color: #bccad6;
+}
+
+.cartPage {
+  background-color: #bccad6;
 }

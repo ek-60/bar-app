@@ -45,8 +45,11 @@ const CiderCard = ({ item, handleClick }) => {
             flexGrow: 1,
             display: "flex",
             flexDirection: "column",
-            maxWidth: 345,
+            maxWidth: 445,
+            minWidth: 245,
+            height: 345,
             margin: 1,
+            backgroundColor: "#cfe0e8",
           }}
         >
           <CardContent>
@@ -74,7 +77,16 @@ const CiderCard = ({ item, handleClick }) => {
             <Button size="small" onClick={() => handleChange(item, +1)}>
               <AddIcon fontSize="small" />
             </Button> */}
-            <Button size="small" onClick={() => handleClick(item)}>
+            <Button
+              size="medium"
+              sx={{
+                fontWeight: "bold",
+                margin: "auto",
+                backgroundColor: "#cfe0e8",
+                color: "black",
+              }}
+              onClick={() => handleClick(item)}
+            >
               Lisää tilaukseen {price}
             </Button>
           </CardActions>

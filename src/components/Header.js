@@ -6,16 +6,17 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Badge } from "@mui/material";
+import BasicButtonGroup from "./ButtonGroup";
 
 const Header = ({ setShow, size }) => {
   return (
     <Box
       sx={{
         flexGrow: 1,
-        marginBottom: 8.5,
+        // marginBottom: 8.5,
       }}
     >
-      <AppBar position="fixed">
+      <AppBar position="fixed" sx={{ backgroundColor: "#667292" }}>
         <Toolbar>
           <Typography
             variant="h6"
@@ -31,6 +32,7 @@ const Header = ({ setShow, size }) => {
             </Badge>
           </Button>
         </Toolbar>
+        {/* <BasicButtonGroup /> */}
       </AppBar>
     </Box>
   );

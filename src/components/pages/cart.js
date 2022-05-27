@@ -39,19 +39,16 @@ const Cart = ({ cart, setCart, handleChange, setShow }) => {
   const handelTable = (event) => {
     const tableNumber = event.target.value;
     setTable(tableNumber);
-    // console.log("Pöydän numero: " + tableNumber);
   };
 
   const handleName = (event) => {
     const userName = event.target.value;
     setName(userName);
-    // console.log("Tilaajan nimi: " + userName);
   };
 
   const handlePhoneNumber = (event) => {
     const phoneNumber = event.target.value.replace(/\D/g, "");
     setNumber(phoneNumber);
-    // console.log("Puhelinnumero: " + phoneNumber);
   };
 
   const Push = () => {
@@ -74,7 +71,6 @@ const Cart = ({ cart, setCart, handleChange, setShow }) => {
         number +
         " Tilasi: " +
         order +
-        // orderAmount +
         " Hinta: " +
         price
     );
@@ -99,7 +95,7 @@ const Cart = ({ cart, setCart, handleChange, setShow }) => {
   // };
 
   return (
-    <div>
+    <div className="cartPage">
       <CloseButton setShow={setShow} />
       <div className="scrollable-div">
         <div>
@@ -128,12 +124,21 @@ const Cart = ({ cart, setCart, handleChange, setShow }) => {
         item
         xs={12}
         sm={4}
-        sx={{ alignItems: "center", justifyContent: "center", display: "flex" }}
+        sx={{
+          alignItems: "center",
+          justifyContent: "center",
+          display: "flex",
+          // backgroundColor: "#bccad6",
+        }}
       >
         <Box>
           <FormControl sx={{ width: 300, margin: 2 }}>
             <InputLabel>Pöydän numero</InputLabel>
-            <Select value={table} onChange={handelTable}>
+            <Select
+              value={table}
+              onChange={handelTable}
+              sx={{ backgroundColor: "#cfe0e8" }}
+            >
               <MenuItem value={1}>1</MenuItem>
               <MenuItem value={2}>2</MenuItem>
               <MenuItem value={3}>3</MenuItem>
@@ -142,7 +147,7 @@ const Cart = ({ cart, setCart, handleChange, setShow }) => {
             </Select>
           </FormControl>
           <TextField
-            sx={{ width: 300, margin: 2 }}
+            sx={{ width: 300, margin: 2, backgroundColor: "#cfe0e8" }}
             id="name"
             label="Anna nimesi"
             placeholder="Nimi"
@@ -152,7 +157,7 @@ const Cart = ({ cart, setCart, handleChange, setShow }) => {
             //   variant="standard"
           />
           <TextField
-            sx={{ width: 300, margin: 2 }}
+            sx={{ width: 300, margin: 2, backgroundColor: "#cfe0e8" }}
             id="phoneNumber"
             label="Anna puhelinnumerosi"
             placeholder="Puhelinnumero"
@@ -169,8 +174,15 @@ const Cart = ({ cart, setCart, handleChange, setShow }) => {
       </div>
       <div className="order">
         <Button
-          sx={{ fontSize: 25, marginBottom: 2, marginTop: 2 }}
-          variant="outlined"
+          sx={{
+            fontSize: 25,
+            marginBottom: 2,
+            marginTop: 2,
+            color: "black",
+            fontWeight: "bold",
+            backgroundColor: "#667292",
+          }}
+          // variant="contained"
           onClick={Push}
         >
           Tilaa tuotteet
