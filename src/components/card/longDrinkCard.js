@@ -47,7 +47,7 @@ const LongDrinkCard = ({ item, handleClick }) => {
             flexDirection: "column",
             maxWidth: 445,
             minWidth: 245,
-            height: 385,
+
             margin: 1,
             backgroundColor: "#cfe0e8",
           }}

@@ -74,25 +74,8 @@ const Cart = ({ cart, setCart, handleChange, setShow }) => {
         " Hinta: " +
         price
     );
+    window.location.reload(1000);
   };
-
-  // const handleOrder = () => {
-  //   const order = cart.map((item) => item.title + item.amount);
-  //   const orderAmount = cart.map((item) => item.amount);
-  //   console.log(
-  //     "Pyödän numero: " +
-  //       table +
-  //       " Tilaajan nimi: " +
-  //       name +
-  //       " Puhelinnumero: " +
-  //       number +
-  //       " Tilasi: " +
-  //       order +
-  //       // orderAmount +
-  //       " Hinta: " +
-  //       price
-  //   );
-  // };
 
   return (
     <div className="cartPage">

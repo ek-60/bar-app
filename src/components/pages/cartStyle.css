@@ -15,10 +15,16 @@
   display: flex;
   font-size: 20px;
   font-weight: bold;
+  background-color: #bccad6;
 }
 .order {
   align-items: center;
   justify-content: center;
   display: flex;
   font-weight: bold;
+  background-color: #bccad6;
+}
+
+h2 {
+  text-transform: uppercase;
 }
